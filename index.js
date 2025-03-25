@@ -12,5 +12,22 @@ const tutorials = [
 ];
 
 const titleCased = () => {
-  return tutorials
+  let specialCases = ['OO', 'API', 'NaN', 'JSONP?'];
+  let specialWords = ['stopPropagation', 'preventDefault?']
+  return tutorials.map((string) => {
+    return string
+      .split(' ')
+      .map(word => {
+        if (specialCases.includes(word)) {
+          return word; // Preserve special case words
+        }
+        if (specialWords.includes(word)) {
+          return word[0].toUpperCase() + word.slice(1);
+        }
+        return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+      })
+      .join(' ');
+  });
 }
+
+console.log(titleCased());
