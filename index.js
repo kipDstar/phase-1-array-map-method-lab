@@ -22,7 +22,7 @@ const titleCased = () => {
           return word; // Preserve special case words
         }
         if (specialWords.includes(word)) {
-          return word[0].toUpperCase() + word.slice(1);
+          return word[0].toUpperCase() + word.slice(1);//preserves special words with capital letters mid-word
         }
         return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
       })
